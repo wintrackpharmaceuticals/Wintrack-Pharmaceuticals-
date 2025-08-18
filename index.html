@@ -31,6 +31,34 @@
 </head>
 
 <body>
+<!-- Splash Screen -->
+<div id="splash">
+  <div class="splash-logo">
+    <img src="logo.png" alt="Wintrack Logo">
+    <div class="splash-line"></div>
+  </div>
+</div>
+
+
+<script>
+  window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+
+ setTimeout(() => {
+  document.getElementById("splash").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("splash").style.display = "none";
+    document.body.classList.add("splash-removed"); // <-- yaha class add hogi
+  }, 1000);
+}, 2000);
+
+});
+
+
+
+
+
+</script>
    <script>
     function toggleDrawer() {
         const navMenu = document.getElementById('navMenu');
@@ -129,7 +157,7 @@
             <div class="container">
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Welcome to Wintrack Pharmaceuticals</h2>
                             <p>One of the Pioneers in Pakistan Pharmaceutical Industry.</p>
                             <p1>At Wintrack, we dedicate ourselves to innovation in Pharmaceutical Products.</p1>
@@ -209,47 +237,40 @@
             </div>
         </section>
 
-        <script>
-            document.querySelectorAll('.read-more').forEach(function(anchor) {
-                anchor.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    const offset = target.getBoundingClientRect().top + window.scrollY - 50; // Adjust '50' to match the desired offset
-                    window.scrollTo({
-                        top: offset,
-                        behavior: 'smooth'
-                    });
-                });
-            });
+      <script>
+        const images = [
+  'bacckground.png',
+  'bacckground1.jpg',
+  'bacckground2.png',
+  'bacckground3.png',
+  'bacckground4.png',
+];
 
+let currentIndex = 0;
+const slider = document.querySelector('.hero-slider');
 
-            const images = [
-                'bacckground.png',
-                'bacckground1.jpg',
-                'bacckground2.png',
-                'bacckground3.png',
-                'bacckground4.png',
-                'bacckground5.png',
-                'bacckground6.png',
-                'bacckground8.png',
-                'background9.png',
-                'bacckground12.png',
-            ];
+function changeBackgroundImage() {
+  const nextIndex = (currentIndex + 1) % images.length;
+  const nextImage = document.createElement('div');
+  nextImage.className = 'bg-slide';
+  nextImage.style.backgroundImage = `url(${images[nextIndex]})`;
+  
+  slider.appendChild(nextImage);
 
-            let currentIndex = 0;
-            const slider = document.querySelector('.hero-slider');
+  setTimeout(() => {
+    nextImage.style.opacity = 1; // fade in
+  }, 50);
 
-            function changeBackgroundImage() {
-                slider.style.opacity = 0; // Fade out to 0%
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    slider.style.backgroundImage = `url(${images[currentIndex]})`;
-                    slider.style.opacity = 1; // Fade in to 100%
-                }, 2000); // Wait for the fade-out to complete before changing the image
-            }
+  setTimeout(() => {
+    slider.style.backgroundImage = `url(${images[nextIndex]})`;
+    nextImage.remove(); // remove temp div
+    currentIndex = nextIndex;
+  }, 2000); // transition time
+}
 
-            setInterval(changeBackgroundImage, 10000);
-        </script>
+setInterval(changeBackgroundImage, 8000);
+
+      </script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 let slideIndex = 0;
@@ -488,6 +509,8 @@
 
     <script src="index.js"></script>
 
+
+    
 </body>
 
 </html>
