@@ -237,7 +237,7 @@ main {
 }
 
 .hero-slider {
-  background: url("bacckground.png");
+  background: url("bacckground1.jpg");
     background-size: cover;   /* image screen ko pura cover karegi */
   background-position: center;   /* center me set hogi */
   color: white;
