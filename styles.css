@@ -243,7 +243,7 @@ main {
   color: white;
   padding: 150px 0;
   text-align: center;
-  min-height: 720px;
+ height: 90vh;
   position: relative;
   overflow: hidden;
  
@@ -423,6 +423,38 @@ main {
 .arrow-right {
   right: 10px;
 }
+
+
+
+
+
+#viewMoreBtn, #viewLessBtn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #319e52, #412775);
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+#viewMoreBtn:hover, #viewLessBtn:hover {
+  background: linear-gradient(135deg, #319e52, #77b13f );
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#viewMoreBtn:active , #viewLessBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 /* Sections */
 
 section {
@@ -712,6 +744,11 @@ section p {
   width: 300px;
   height: 150px;
 }
+.product-item:hover {
+  transform: translateY(-8px); /* thoda upar uthna */
+  
+}
+
 
 .product-item img {
   width: 95%;
@@ -720,7 +757,9 @@ section p {
   border-radius: 17px;
   object-fit: cover;
 }
-
+.product-item:hover img {
+  transform: scale(1.05); /* halka zoom on hover */
+}
 .product-item h3 {
   font-size: 1.25rem;
   margin-bottom: 10px;
@@ -748,7 +787,7 @@ section p {
   margin: auto;
   display: block;
   max-width: 80%;
-  border-radius: 50%;   /* 👈 ye use karo */
+  border-radius: 50px !important;   
 }
 
 
@@ -1424,6 +1463,7 @@ footer .footer-left {
     padding: 20px;
     font-size: 14px;
     color: #333;
+    margin-left: 5px;
   }
 
   .mobile-contact p {
@@ -1431,17 +1471,19 @@ footer .footer-left {
     font-size: 12px;
   }
 .mobile-only .mobile-contacts img, p8 {
-    margin-left: 15px ;
+    margin-left: 25px ;
     font-size: 12px;
     font-weight: bold;
     color: #333;
     font-family: 'Times New Roman', Times, serif;
+    
   }
 
   .mobile-social {
     display: flex;
     gap: 15px;
     padding: 0 20px 20px 20px;
+     margin-left: 5px;
   }
 
   .mobile-social a {
@@ -1585,13 +1627,49 @@ footer .footer-left {
   #products p {
     font-size: 1rem;
   }
-  #product .product-item {
-    border-radius: 5px;
-    padding: 5px;
-
-    width: 150px;
-    height: 50px;
+ #products .product-item {
+    width: 160px;
+    height: 100px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
   }
+
+  /* Hover effect */
+  #products .product-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Image styling */
+  #products .product-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Zoom on hover */
+  #products .product-item:hover img {
+    transform: scale(1.05);
+  }
+
+#viewMoreBtn, #viewLessBtn {
+  
+  font-size: 10px;
+  font-weight: 300;
+
+  border-radius: 5px;
+}
 
 
   .contact-form-section {
