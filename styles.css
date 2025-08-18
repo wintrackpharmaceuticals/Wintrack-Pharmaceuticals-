@@ -741,29 +741,65 @@ section p {
   border-radius: 8px;
   padding: 20px;
   text-align: center;
-  width: 300px;
-  height: 150px;
-}
-.product-item:hover {
-  transform: translateY(-8px); /* thoda upar uthna */
-  
+
 }
 
 
 .product-item img {
-  width: 95%;
-  height: 130%;
+width: 260px !important;
+  height: 150px !important;
   box-shadow: 0px 0px 10px #d4d3d3;
-  border-radius: 17px;
+  border-radius: 15px;
   object-fit: cover;
 }
-.product-item:hover img {
-  transform: scale(1.05); /* halka zoom on hover */
-}
+
+
+
+#products .product-item {
+
+    background: #fff;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  /* Hover effect */
+  #products .product-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Image styling */
+  #products .product-item img {
+    max-width: 100%;
+    max-height: 100%;
+ 
+ 
+    transition: transform 0.3s ease;
+  }
+
+  /* Zoom on hover */
+  #products .product-item:hover img {
+    transform: scale(1.05);
+  }
+
+
+
+
+
 .product-item h3 {
   font-size: 1.25rem;
   margin-bottom: 10px;
 }
+
+
+
+
+
+  
+
 
 .product-item p {
   color: #555;
@@ -781,6 +817,7 @@ section p {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.8);
+  z-index: 10000 !important;
 }
 
 .modal-content {
@@ -1628,12 +1665,12 @@ footer .footer-left {
     font-size: 1rem;
   }
  #products .product-item {
-    width: 160px;
-    height: 100px;
+    width: 150px;
+    height: 90px;
     background: #fff;
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px;
+    border-radius: 10px;
+    padding: 2px;
+    margin: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1654,13 +1691,17 @@ footer .footer-left {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 10px;
     transition: transform 0.3s ease;
   }
 
   /* Zoom on hover */
   #products .product-item:hover img {
     transform: scale(1.05);
+  }
+
+  .modal{
+    border-radius: 2px;
   }
 
 #viewMoreBtn, #viewLessBtn {
