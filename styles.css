@@ -302,6 +302,8 @@ main {
   }
 }
 
+
+
 /* Common animation style */
 #hero-heading h2,
 #hero-heading p,
@@ -341,27 +343,34 @@ main {
 
 
 .hero-slider p1 {
-  font-size: 1.5em;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 550;
+ font-size: 1.1rem;
+  color: #e0e0e0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   animation-delay: 1s;
 }
 
 .hero-slider h2 {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 3.5em;
+    font-family: "Poppins", sans-serif; /* Modern clean font */
+  font-size: 3rem; /* Balanced heading size */
+  font-weight: 700; /* Bold & strong */
   margin: 0;
-  color: white;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 white, -1px 1px 0 black,
-    1px 1px 0 black;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Subtle shadow */
+  letter-spacing: 1px; /* Spacing for elegance */
+ 
      animation-delay: 0.2s; 
 }
 
 .hero-slider p {
-  font-size: 2em;
-  color: white;
-  font-family: "Times New Roman", Times, serif;
+  font-size: 1.25rem; /* Professional body text */
+  color: #f0f0f0; /* Softer white shade */
+  font-family: "Open Sans", sans-serif; /* Clean & readable */
+  line-height: 1.6; /* Better readability */
+  max-width: 700px; /* Prevents too-wide text */
+  margin: 15px auto 0; /* Center aligned */
   animation-delay: 0.6s; /* ke baad aaye */
 }
 
@@ -2001,7 +2010,7 @@ header {
 
 .hero-slider {
 
- height: 80vh !important;
+ height: 85vh !important;
 
 }
   #home h2 {
@@ -2015,9 +2024,7 @@ header {
 
  
 
-  .read-more a {
-    margin-top: -50px;
-  }
+  
 
   #about .info-box h3,
   #about .info-box h5,
