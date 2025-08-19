@@ -1665,6 +1665,7 @@ footer .footer-left {
 
 
   .arrow {
+    margin-top: 20px;
     padding: 2px;                 /* chhota button */
     font-size: 14px;              /* arrow icon ya text chhota */
     background: rgba(0,0,0,0.3);  /* halka background */
@@ -1760,11 +1761,7 @@ footer .footer-left {
   #products .product-item:hover img {
     transform: scale(1.05);
   }
- #imgModal .modal-content {
-    border-radius: 5px;   /* chhota radius */
-    max-width: 95%;       /* thoda responsive */
-    max-height: 70vh;     /* mobile ke liye adjust */
-  }
+
   
 
 #viewMoreBtn, #viewLessBtn {
@@ -1775,6 +1772,12 @@ footer .footer-left {
   border-radius: 5px;
 }
 
+#map {
+  height: 200px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
 
   .contact-form-section {
     padding: 40px 15px;
