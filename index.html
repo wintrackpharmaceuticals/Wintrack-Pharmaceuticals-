@@ -237,8 +237,9 @@
             </div>
         </section>
 
-      <script>
-        const images = [
+ 
+<script>
+const images = [
   'bacckground1.jpg',
   'bacckground.png',
   'bacckground2.png',
@@ -258,20 +259,18 @@ function changeBackgroundImage() {
   slider.appendChild(nextImage);
 
   setTimeout(() => {
-    nextImage.style.opacity = 1; // fade in
+    nextImage.style.opacity = 1; // fade in + zoom
   }, 50);
 
   setTimeout(() => {
     slider.style.backgroundImage = `url(${images[nextIndex]})`;
-    nextImage.remove(); // remove temp div
+    nextImage.remove();
     currentIndex = nextIndex;
-  }, 2000); // transition time
+  }, 2000);
 }
 
-
 setInterval(changeBackgroundImage, 8000);
-
-      </script>
+</script>
      <script>
 document.addEventListener('DOMContentLoaded', () => {
     let slideIndex = 0;
