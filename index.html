@@ -158,7 +158,7 @@
                 <div class="hero-slide">
                     <div class="hero-slider-content">
                         <div class="hero-text" id="hero-heading">
-                            <h2>Welcome to Wintrack Pharmaceuticals</h2>
+                            <h2>Welcome to<br>Wintrack Pharmaceuticals</h2>
                             <p>One of the Pioneers in Pakistan Pharmaceutical Industry.</p>
                             <p1>At Wintrack, we dedicate ourselves to innovation in Pharmaceutical Products.</p1>
                             <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Innovating Health Solutions</h2>
                             <p1>Providing advanced healthcare solutions for a healthier tomorrow.</p1>
                             <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
@@ -178,7 +178,7 @@
                 </div>
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Trusted Solutions for Patients</h2>
                             <p1>Delivering reliable and innovative healthcare solutions tailored to meet the needs of our patients and ensure a brighter, healthier future.</p1>
                             <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
@@ -188,7 +188,7 @@
                 </div>
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Empowering Health with Innovation</h2>
                             <p1>Driving forward with cutting-edge technologies and solutions for a healthier future.
                             </p1>
@@ -200,7 +200,7 @@
 
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Excellence in Pharmaceutical Care</h2>
                             <p1>Committed to excellence and quality in every product we deliver.</p1>
                             <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
@@ -211,7 +211,7 @@
 
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Leading with Integrity</h2>
                             <p1>Dedicated to ethical practices and transparency in every aspect of our business.</p1>
                             <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
@@ -222,7 +222,7 @@
 
                 <div class="hero-slide">
                     <div class="hero-slider-content">
-                        <div class="hero-text">
+                        <div class="hero-text" id="hero-heading">
                             <h2>Committed to Patient Care</h2>
                             <p1>Our mission is to enhance patient lives through effective and trusted pharmaceutical solutions.
                             </p1>
@@ -268,32 +268,54 @@ function changeBackgroundImage() {
   }, 2000); // transition time
 }
 
+
 setInterval(changeBackgroundImage, 8000);
 
       </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                let slideIndex = 0;
-                const slides = document.querySelectorAll('.hero-slide');
-                
+     <script>
+document.addEventListener('DOMContentLoaded', () => {
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    let autoSlide; // interval ka reference
 
-                document.querySelector('.arrow-right').addEventListener('click', () => {
-                    slideIndex = (slideIndex + 1) % slides.length;
-                    showSlides();
-                });
+    // Show slide function
+    function showSlides() {
+        slides.forEach((slide, index) => {
+            slide.style.display = (index === slideIndex) ? 'block' : 'none';
+        });
+    }
 
-                document.querySelector('.arrow-left').addEventListener('click', () => {
-                    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-                    showSlides();
-                });
+    // Change slide automatically
+    function changeTextSlide() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlides();
+    }
 
-                // Optional: Automatic slide transition
-                setInterval(() => {
-                    slideIndex = (slideIndex + 1) % slides.length;
-                    showSlides();
-                }, 13000);
-            });
-        </script>
+    // Reset + restart interval
+    function resetInterval() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(changeTextSlide, 15000);
+    }
+
+    // Arrows
+    document.querySelector('.arrow-right').addEventListener('click', () => {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlides();
+        resetInterval(); // arrow dabane ke baad timer reset hoga
+    });
+
+    document.querySelector('.arrow-left').addEventListener('click', () => {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlides();
+        resetInterval();
+    });
+
+    // Initialize
+    showSlides();
+    resetInterval(); // start auto-slide
+});
+</script>
+
 
         <section id="about">
             <div class="container">
