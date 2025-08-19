@@ -1665,7 +1665,7 @@ footer .footer-left {
 
 
   .arrow {
-    padding: 6px;                 /* chhota button */
+    padding: 2px;                 /* chhota button */
     font-size: 14px;              /* arrow icon ya text chhota */
     background: rgba(0,0,0,0.3);  /* halka background */
   }
@@ -1727,7 +1727,7 @@ footer .footer-left {
   background: #fff;
   border-radius: 10px;
   padding: 2px;
-  margin: 5px 0;
+  margin: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1738,9 +1738,14 @@ footer .footer-left {
 }
   /* Hover effect */
   #products .product-item:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   }
+
+
+
+
+  
 
   /* Image styling */
   #products .product-item img {
@@ -1755,7 +1760,11 @@ footer .footer-left {
   #products .product-item:hover img {
     transform: scale(1.05);
   }
-
+ #imgModal .modal-content {
+    border-radius: 5px;   /* chhota radius */
+    max-width: 95%;       /* thoda responsive */
+    max-height: 70vh;     /* mobile ke liye adjust */
+  }
   
 
 #viewMoreBtn, #viewLessBtn {
@@ -1963,7 +1972,7 @@ footer .footer-left {
 
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   body {
     overflow-x: hidden;
     margin-top: 20px !important;
@@ -2033,7 +2042,7 @@ header {
 
 .hero-slider {
 
- height: 85vh !important;
+ height: 85vh;
 
 }
   #home h2 {
