@@ -164,6 +164,34 @@
                 </div>
         </section>
 
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const headings = document.querySelectorAll("#about .info-box-item h3");
+
+  // Agar headings exist karti hain tabhi kaam karo
+  if (headings.length > 0) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target); // ek bar trigger k baad dobara observe na ho
+          }
+        });
+      }, { threshold: 0.3 });
+
+      headings.forEach((h3) => {
+        observer.observe(h3);
+      });
+    } else {
+      // Fallback (older browsers): direct animate class add
+      headings.forEach((h3) => h3.classList.add("animate"));
+    }
+  }
+});
+</script>
+
+
 
         <section id="ideology">
             <div class="container">
