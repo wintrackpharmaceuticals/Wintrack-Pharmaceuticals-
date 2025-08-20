@@ -513,6 +513,7 @@ section p {
   margin-top: -10px;
 }
 
+
 #about .info-box {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -602,9 +603,23 @@ section p {
   /* Consistent font for a clean look */
 }
 
+
 #about h2 {
-  color: black;
-  font-size: 2em;
+  color: #222;             /* black se thora soft shade */
+  font-size: 2.2em;
+  font-weight: 600;        /* bold but clean */
+  text-align: center;      /* heading center ho */
+  margin-bottom: 20px;     
+  position: relative;
+}
+
+
+#about h4 {
+  font-family: "Georgia", serif;   /* Times se thoda modern look */
+  text-align: center;             /* paragraph justify */
+  font-size: 1.2em;
+  color: #1b1b1b;
+  font-weight: 400;
 }
 
 #about h3 {
@@ -621,13 +636,7 @@ section p {
   text-align: center;
 }
 
-#about h4 {
-  font-family: "Times New Roman", Times, serif;
-  text-align: center;
-  font-size: 1.7em;
-  color: black;
-  font-weight: 100;
-}
+
 
 #about h5 {
   font-size: 1.5em;
@@ -680,24 +689,51 @@ section p {
 }
 
 .team-member {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;   /* divider line between members */
 }
 
 .team-member img {
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  width: 260px;   /* bigger */
+  height: 260px;
   object-fit: cover;
-  max-width: 100%;
-  height: auto;
-  margin-right: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);  /* thoda deeper shadow */
+  transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+  transform: scale(1.05);
+}
+
+.team-member h3 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #0a66c2;          /* professional blue accent */
+  font-weight: 600;
+}
+
+.team-member h3 span {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #444444;
+  margin-top: 4px;
 }
 
 .team-member p {
-  font-weight: 500;
+  font-size: 1.2em;
+  color: #444;
+  line-height: 1.7;
+  margin-top: 10px;
+  max-width: 650px;        /* paragraph limit */
+  text-align: justify;
 }
+
 
 #ideology {
   background-color: #d4d3d3;
