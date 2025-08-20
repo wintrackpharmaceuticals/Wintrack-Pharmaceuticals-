@@ -1762,6 +1762,30 @@ footer .footer-left {
   border-radius: 5px;
 }
 
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center; 
+    gap: 10px;
+  }
+
+  .album {
+    flex: 0 0 45%;
+     box-sizing: border-box; /* include padding/margin in width */
+  margin-bottom: 10px;
+  text-align: center;
+    width: 48%; /* 2 columns side by side */
+    margin-bottom: 10px;
+  }
+
+  .album img {
+     width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  }
+
 #map {
   height: 200px;
   width: 100%;
