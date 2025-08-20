@@ -181,7 +181,7 @@
                         <div class="hero-text" id="hero-heading">
                             <h2>Trusted Solutions for Patients</h2>
                             <p1>Delivering reliable and innovative healthcare solutions tailored to meet the needs of our patients and ensure a brighter, healthier future.</p1>
-                            <br><br> <br><br> <br><br><span class="horizontal-line"></span><br>
+                             <br><br> <br><br><span class="horizontal-line"></span><br>
                             <a href="#about" class="read-more">Read More</a>
                         </div>
                     </div>
@@ -320,6 +320,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="container">
                 <br><br>
                 <div class="info-box">
+
+                    
                     <div class="info-box-item left">
                         <h3>𝐎𝐮𝐫 𝐕𝐢𝐬𝐢𝐨𝐧</h3>
                     </div>
@@ -339,6 +341,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             </div>
         </section>
+
+        <script>
+  const headings = document.querySelectorAll('#about .info-box-item h3');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.3 }); // 30% visible hone par trigger hoga
+
+  headings.forEach(h3 => {
+    observer.observe(h3);
+  });
+</script>
 
 
         <section id="ideology">
@@ -372,7 +390,28 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </section>
 
-       
+       <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const products = document.querySelectorAll('.product-item');
+
+  if ("IntersectionObserver" in window) {  // check browser support
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    products.forEach(product => {
+      observer.observe(product);
+    });
+  }
+});
+</script>
+
 
     </main>
 

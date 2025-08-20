@@ -108,7 +108,7 @@
                 <br><br>
                 <h2><b>Wintrack Brands</b></h2>
                 <p>We provide a diverse range of pharmaceutical products designed to meet your health needs, including prescription medications.</p><br>
-              <div class="product-grid">
+              <div class="product-grid" class="product-scroll">
     <div class="product-item">
         <img src="1.jpg" alt="Product 1">
     </div>
@@ -116,109 +116,128 @@
         <img src="2.jpg" alt="Product 2">
     </div>
 
-    <div class="product-item" style="display: none;">
+    <div class="product-item" >
         <img src="3.jpg" alt="Product 3">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item" >
         <img src="4.jpg" alt="Product 4">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="5.jpg" alt="Product 5">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="6.jpg" alt="Product 6">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="7.jpg" alt="Product 7">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="8.jpg" alt="Product 8">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="9.jpg" alt="Product 9">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="10.jpg" alt="Product 10">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="11.png" alt="Product 11">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="12.png" alt="Product 12">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="13.png" alt="Product 13">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="14.jpg" alt="Product 14">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="15.jpg" alt="Product 15">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="16.jpg" alt="Product 16">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="17.jpg" alt="Product 17">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="18.jpg" alt="Product 18">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="19.jpg" alt="Product 19">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="20.jpg" alt="Product 20">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="21.jpg" alt="Product 21">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="22.jpg" alt="Product 22">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="23.jpg" alt="Product 23">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="24.jpg" alt="Product 24">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="25.jpg" alt="Product 25">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="26.jpg" alt="Product 26">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="27.jpg" alt="Product 27">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="28.jpg" alt="Product 28">
     </div>
   
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="30.jpg" alt="Product 30">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="31.jpg" alt="Product 31">
     </div>
     
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="33.jpg" alt="Product 33">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="34.jpg" alt="Product 34">
     </div>
-    <div class="product-item" style="display: none;">
+    <div class="product-item"   >
         <img src="35.jpg" alt="Product 35">
     </div>
 </div>
 
 
                 <br><br>
-                <div class="button-container">
-                    <button id="viewMoreBtn">View More</button></div>
+               
             </div>
         </section>
+
+<script>
+  const products = document.querySelectorAll('.product-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');   // scroll down → show
+      } else {
+        entry.target.classList.remove('show'); // scroll up → hide
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visible hone par trigger hoga
+
+  products.forEach(product => {
+    observer.observe(product);
+  });
+</script>
+
+
 <!-- Popup Modal -->
 <div id="imgModal" class="modal">
   <span class="close">&times;</span>
@@ -256,67 +275,7 @@ window.onclick = function(event) {
 
 </script>
 
-        <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const initiallyVisibleCount = 15; // Number of products to show initially
-        const incrementCount = 10; // Number of products to show/hide at a time
-        const hiddenItems = document.querySelectorAll('.product-item');
-        const viewMoreBtn = document.getElementById('viewMoreBtn');
-        const buttonContainer = document.querySelector('.button-container');
-        const viewLessBtn = document.createElement('button');
-
-        viewLessBtn.id = 'viewLessBtn';
-        viewLessBtn.textContent = 'View Less';
-        viewLessBtn.style.display = 'none'; // Initially hide the "View Less" button
-        buttonContainer.appendChild(viewLessBtn); // Add the "View Less" button
-
-        // Initially show the first set of products
-        for (let i = 0; i < initiallyVisibleCount && i < hiddenItems.length; i++) {
-            hiddenItems[i].style.display = 'block';
-        }
-
-        viewMoreBtn.addEventListener('click', function () {
-            const hiddenItems = document.querySelectorAll('.product-item[style="display: none;"]');
-            for (let i = 0; i < incrementCount && i < hiddenItems.length; i++) {
-                hiddenItems[i].style.display = 'block';
-            }
-
-            if (hiddenItems.length <= incrementCount) {
-                viewMoreBtn.style.display = 'none'; // Hide "View More" if all are visible
-            }
-
-            viewLessBtn.style.display = 'block'; // Show "View Less"
-        });
-
-        viewLessBtn.addEventListener('click', function () {
-            const allItems = document.querySelectorAll('.product-item');
-            let visibleCount = 0;
-
-            // Count visible items
-            allItems.forEach(item => {
-                if (item.style.display === 'block') visibleCount++;
-            });
-
-            // Hide items in reverse but don't hide first 15
-            let itemsToHide = Math.min(incrementCount, visibleCount - initiallyVisibleCount);
-            for (let i = allItems.length - 1; i >= 0 && itemsToHide > 0; i--) {
-                if (allItems[i].style.display === 'block' && i >= initiallyVisibleCount) {
-                    allItems[i].style.display = 'none';
-                    itemsToHide--;
-                }
-            }
-
-            // Hide "View Less" if only the initial are visible
-            const stillVisible = document.querySelectorAll('.product-item[style="display: block;"]').length;
-            if (stillVisible <= initiallyVisibleCount) {
-                viewLessBtn.style.display = 'none';
-            }
-
-            viewMoreBtn.style.display = 'block'; // Show "View More"
-        });
-    });
-</script>
-
+     
 
 
 

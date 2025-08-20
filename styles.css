@@ -252,7 +252,7 @@ main {
   color: white;
   padding: 150px 0;
   text-align: center;
-  height: 90vh;
+  height: 80vh;
   position: relative;
   overflow: hidden;
 
@@ -575,20 +575,31 @@ section p {
   /* Light color to blend subtly */
 }
 
+/* Default state (hidden & left side) */
 #about .info-box-item h3 {
   border-bottom: 2px solid black;
-  /* Use a brand color for prominence */
   padding-bottom: 12px;
   margin-bottom: 20px;
   color: #333;
-  /* Dark color for better readability */
   font-size: 20px;
-  /* Slightly larger font size for emphasis */
   font-weight: 700;
-  /* Bold font for headings */
   text-transform: uppercase;
-  /* Uppercase for a formal touch */
+
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
 }
+
+/* Active state (animate into view) */
+#about .info-box-item h3.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
 
 #about .info-box-item p {
   color: #666;
@@ -795,11 +806,16 @@ section p {
 }
 
 .product-item {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
+  opacity: 0;
+  transform: translateY(50px); /* neeche se upar aayega */
+  transition: all 0.8s ease-out;
 }
+
+.product-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .product-item img {
   width: 260px !important;
@@ -835,7 +851,7 @@ section p {
 
 /* Zoom on hover */
 #products .product-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .product-item h3 {
