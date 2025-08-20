@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let images = [];
 
     function openAlbum(albumId) {
-        console.log("Opening album:", albumId); // Log to verify the function is being called
+        console.log("Opening album:", albumId); // Debug
 
         // Hide all album detail sections
         document.querySelectorAll('.album-images').forEach(album => {
@@ -76,26 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (album) {
             album.style.display = 'block';
 
-            // Delay the scroll operation to ensure content is loaded
+            // Delay scroll to ensure content is loaded
             setTimeout(() => {
-                // Find the heading within the album
-                const heading = album.querySelector('h2, h3, h4, .album-heading'); // Adjust selector as per your HTML structure
                 const albumOffset = album.getBoundingClientRect().top + window.scrollY;
-                
-                // Calculate offset dynamically
-                if (heading) {
-                    const headingOffset = heading.getBoundingClientRect().top + window.scrollY;
-                    const desiredOffset = headingOffset - (window.innerHeight / 2 - heading.offsetHeight / 2); // Center the heading in view
-                    window.scrollTo({
-                        top: desiredOffset,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    window.scrollTo({
-                        top: albumOffset,
-                        behavior: 'smooth'
-                    });
-                }
+
+                // Scroll exactly to album start (optional: add small offset if chah ho)
+                const offset = albumOffset; // ya albumOffset - 10; for slight gap
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
             }, 100);
 
             // Update images array and set initial index
@@ -131,15 +121,21 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('lightbox-img').src = images[currentIndex].src;
     }
 
+    // Attach album click events
     document.querySelectorAll('.album').forEach(album => {
-        const albumId = album.getAttribute('onclick').match(/'([^']+)'/)[1];
-        album.addEventListener('click', () => openAlbum(albumId));
+        const albumIdMatch = album.getAttribute('onclick')?.match(/'([^']+)'/);
+        if (albumIdMatch) {
+            const albumId = albumIdMatch[1];
+            album.addEventListener('click', () => openAlbum(albumId));
+        }
     });
 
-    document.querySelector('.close').addEventListener('click', closeLightbox);
-    document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
-    document.querySelector('.next').addEventListener('click', () => changeSlide(1));
+    // Lightbox controls
+    document.querySelector('.close')?.addEventListener('click', closeLightbox);
+    document.querySelector('.prev')?.addEventListener('click', () => changeSlide(-1));
+    document.querySelector('.next')?.addEventListener('click', () => changeSlide(1));
 });
+
 
 function scrollToTop() {
     window.scrollTo({
