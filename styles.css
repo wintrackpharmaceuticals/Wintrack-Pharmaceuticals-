@@ -501,8 +501,8 @@ section p {
   font-size: 1.2em;
   line-height: 1.6;
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 2000px;
+ 
 }
 /* About Section */
 
@@ -569,17 +569,18 @@ section p {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   padding: 40px;
-  /* Increased padding for a more spacious feel */
-  margin-bottom: 50px;
+  margin: 0 auto 50px auto; /* center horizontally + bottom margin */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   border-radius: 10px;
-  /* Slightly more rounded corners */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  /* Enhanced shadow for better depth */
+
+  max-width: 1200px; /* adjust width as per need */
+  width: 90%;       /* responsive width for smaller screens */
 }
+
 
 #about .info-box::before {
   content: "";
@@ -807,7 +808,7 @@ section p {
 }
 
 #ideology .container {
-  max-width: 800px;
+  max-width: 1200px;
   /* Limit container width */
   margin: 0 auto;
   /* Center container horizontally */
@@ -822,20 +823,20 @@ section p {
   margin-bottom: 20px;
   /* Space below the heading */
 }
-
 #ideology p {
-  font-size: 1.2em;
-  /* Slightly larger font size for the paragraph */
+  font-size: 1.2em; /* Slightly larger font size for the paragraph */
   color: black;
-  line-height: 1.6;
-  /* Line height for better readability */
-  margin: 0 auto;
-  /* Center-align the paragraph */
+  line-height: 1.6; /* Line height for better readability */
+  width: 100%; /* ya 1100px agar fixed chahiye, lekin percentage better hai */
   
+  margin: 0 auto; /* Center-align horizontally */
+  text-align: center; /* Agar text bhi center karna ho */
 }
 
-#history p {
+section #history .container p {
   font-weight: 100;
+  width: 1000px;
+  margin: 0 auto; /* Center-align horizontally */
 }
 #history p b {
   font-weight: bold;
@@ -858,7 +859,14 @@ section p {
 #products {
   padding: 40px 0;
   background-color: white;
+  text-align: center;
 }
+#products p {
+  width: 80%;       /* Paragraph width */
+  margin: 0 auto;   /* Horizontally center */
+  text-align: center; /* Optional: agar text bhi center chahiye */
+}
+
 
 #products .container {
   text-align: center;
