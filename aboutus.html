@@ -50,12 +50,24 @@
 
         <!-- Navigation Links -->
         <li><a href="index.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
+        <li class="dropdown">
+  <a href="aboutus.html">About Us ▾</a>
+  <ul class="dropdown-menu">
+    <li><a href="#owners">Us</a></li>
+    <li><a href="#company-profile">Company Profile</a></li>
+    <li><a href="#vision">Our Vision, Mission &amp; Values</a></li>
+    <li><a href="#ideology">Our Strengths</a></li>
+    <li><a href="#history">Our History</a></li>
+  </ul>
+</li>
         <li><a href="products.html">Products</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="policies.html">Policies & Rules</a></li>
         <li><a href="contact.html">Contact Us</a></li>
 <a href="contact.html#reach" class="cta-btn">Reach Out To Us</a>
+
+
+
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
@@ -116,9 +128,15 @@
     </script>
     <main>
 
-        <section id="about">
+
+
+
+
+        <section id="about" >
+            <div id="owners">
             <div class="container">
                 <br><br><br>
+                
                 <h2><b>About Us</b></h2>
                 <p>Welcome to 𝐖𝐢𝐧𝐭𝐫𝐚𝐜𝐤 𝐏𝐡𝐚𝐫𝐦𝐚𝐜𝐞𝐮𝐭𝐢𝐜𝐚𝐥𝐬, a leading name in the pharmaceutical industry dedicated to enhancing health and improving lives. With a commitment to innovation, quality, and excellence, we strive to create
                     a significant impact in the healthcare sector.</p>
@@ -136,7 +154,10 @@
 
                 <br><br>
 
-<div class="info-box">
+
+</div>
+
+<div class="info-box" id="company-profile">
 
                 <h2><b>Company Profile</b></h2><br>
                 <h4>𝐖𝐢𝐧𝐭𝐫𝐚𝐜𝐤 𝐏𝐡𝐚𝐫𝐦𝐚𝐜𝐞𝐮𝐭𝐢𝐜𝐚𝐥𝐬 has very highly professional team in all departments of the company.<br><br> 𝐖𝐢𝐧𝐭𝐫𝐚𝐜𝐤 𝐏𝐡𝐚𝐫𝐦𝐚𝐜𝐞𝐮𝐭𝐢𝐜𝐚𝐥𝐬 has grown from a small startup into a leading provider of innovative
@@ -145,7 +166,7 @@
                 
                 </div>
                 
-                <div class="info-box">
+                <div class="info-box" id="vision">
                     <div class="info-box-item left">
                         <h3>𝐎𝐮𝐫 𝐕𝐢𝐬𝐢𝐨𝐧</h3>
                     </div>
@@ -195,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <section id="ideology">
             <div class="container">
-                <h2>Company Profile</h2>
+                <h2>Our Strengths</h2>
                 <p>At 𝐖𝐢𝐧𝐭𝐫𝐚𝐜𝐤 𝐏𝐡𝐚𝐫𝐦𝐚𝐜𝐞𝐮𝐭𝐢𝐜𝐚𝐥𝐬 , we regularly organize training programs to enhance the 
                     professional capabilities of our team and ensure improved customer satisfaction and 
                     regulatory compliance. Our team includes professionals with expertise in marketing 
@@ -217,6 +238,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         workforce across the country.</p>
             </div>
         </section>
+
+<script>
+  // Select all paragraphs inside ideology and history
+  const fadeElements = document.querySelectorAll("#ideology p, #history p");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");   // show class lagao
+      } 
+    });
+  }, { threshold: 0.2 }); // 20% visible hone par trigger hoga
+
+  // Attach observer
+  fadeElements.forEach(el => {
+    el.classList.add("fade-ups");  // initially fade-up rakho
+    observer.observe(el);
+  });
+</script>
+
 
     </main>
 
@@ -278,6 +319,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     <script src="index.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  const overlay = document.getElementById('overlay');
+
+  dropdowns.forEach(dropdown => {
+    const toggleLink = dropdown.querySelector('a'); // dropdown toggle
+    const menu = dropdown.querySelector('.dropdown-menu');
+
+    // Toggle dropdown open/close
+    toggleLink.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const isActive = dropdown.classList.contains('active');
+
+        // Close all dropdowns first
+        dropdowns.forEach(dd => dd.classList.remove('active'));
+        
+        if (!isActive) {
+          dropdown.classList.add('active'); // open clicked dropdown
+          overlay.style.display = 'block';
+        } else {
+          overlay.style.display = 'none';
+        }
+      }
+    });
+
+    // Handle link clicks inside dropdown
+    const links = menu.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        dropdown.classList.remove('active'); // close menu
+        overlay.style.display = 'none';
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  });
+
+  // Overlay click closes all
+  overlay.addEventListener('click', () => {
+    dropdowns.forEach(dd => dd.classList.remove('active'));
+    overlay.style.display = 'none';
+  });
+
+  // Scroll closes all
+  window.addEventListener('scroll', () => {
+    dropdowns.forEach(dd => dd.classList.remove('active'));
+    overlay.style.display = 'none';
+  });
+});
+</script>
+
+
 
 </body>
 
