@@ -1191,6 +1191,37 @@ section #history .container p {
   cursor: pointer;
 }
 
+
+/* Album Hover */
+.album img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.album:hover img {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Social Icons Hover */
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: #ff4081;
+}
+
+/* Scroll Arrow Animation */
+.bottom-arrow {
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+
 #policies .container {
   padding: 20px;
 }

@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="icon" href="logo.png" type="image/png">
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -106,9 +109,9 @@
         <section id="products">
             <div class="container">
                 <br><br>
-                <h2><b>Wintrack Brands</b></h2>
-                <p>We provide a diverse range of pharmaceutical products designed to meet your health needs, including prescription medications.</p><br>
-              <div class="product-grid" class="product-scroll">
+                <h2 data-aos="fade-up"><b>Wintrack Brands</b></h2>
+                <p data-aos="fade-right">We provide a diverse range of pharmaceutical products designed to meet your health needs, including prescription medications.</p><br>
+              <div class="product-grid" class="product-scroll" data-aos="zoom-in">
     <div class="product-item">
         <img src="1.jpg" alt="Product 1">
     </div>
@@ -338,6 +341,16 @@ window.onclick = function(event) {
 </script>
 
     <script src="index.js"></script>
+
+<!-- AOS Animation Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // animation speed in ms
+    once: true       // sirf ek bar animate hoga scroll pe
+  });
+</script>
+
 
 </body>
 
