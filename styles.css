@@ -812,6 +812,9 @@ section p {
   /* Limit container width */
   margin: 0 auto;
   /* Center container horizontally */
+   min-height: 350px;   /* minimum height rakho */
+  padding: 40px 20px;  /* andar ka space responsive rahe */
+  box-sizing: border-box;
 }
 
 #ideology h2 {
@@ -1857,7 +1860,10 @@ margin-left: 20px;
   display: none;
 }
 
-
+ #ideology {
+    min-height: auto;   /* fixed height hata do */
+    padding: 20px 15px; /* thoda kam padding */
+  }
   #ideology h2 {
     font-size: 1.5rem;
   }
