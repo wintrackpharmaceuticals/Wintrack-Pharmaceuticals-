@@ -1851,6 +1851,13 @@ margin-left: 20px;
     font-size: 1rem;
   }
 
+
+#about .info-box-item:not(:last-child)::after {
+
+  display: none;
+}
+
+
   #ideology h2 {
     font-size: 1.5rem;
   }
