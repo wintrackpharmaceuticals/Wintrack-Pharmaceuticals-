@@ -812,7 +812,7 @@ section p {
   /* Limit container width */
   margin: 0 auto;
   /* Center container horizontally */
-   min-height: 350px;   /* minimum height rakho */
+   min-height: 250px;   /* minimum height rakho */
   padding: 40px 20px;  /* andar ka space responsive rahe */
   box-sizing: border-box;
 }
